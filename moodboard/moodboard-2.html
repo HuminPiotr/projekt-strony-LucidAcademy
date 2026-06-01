@@ -819,6 +819,29 @@
         color: var(--mist);
       }
 
+      /* DWA ŚWIATŁA — diptyk */
+      .twolights {
+        margin: 28px 0 4px;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        box-shadow: 0 30px 70px -36px rgba(0, 0, 0, 0.85);
+      }
+      .twolights img {
+        width: 100%;
+        display: block;
+      }
+      .twolights figcaption {
+        padding: 14px 18px;
+        font-size: 0.86rem;
+        color: var(--lavender);
+        background: linear-gradient(
+          90deg,
+          rgba(69, 217, 255, 0.07),
+          rgba(255, 210, 63, 0.07)
+        );
+      }
+
       /* OCIEPLANIE TŁA przy scrollu (pokazuje koncepcję na żywo) */
       .warmth {
         position: fixed;
@@ -915,6 +938,19 @@
           Jedna prosta reguła porządkuje całą markę: technologia świeci na
           zimno, kultura na ciepło — i oba światła są na tym samym kadrze.
         </p>
+        <figure class="twolights">
+          <img
+            src="../grafiki/dwa-swiatla.png"
+            alt="Dwa światła — zimna technologia obok ciepłej kultury"
+          />
+          <figcaption>
+            <b style="color: var(--cyan)">Po lewej — zimne światło:</b> neonowe
+            miasto AI, mózg-obwód, samotna sylwetka.
+            <b style="color: var(--gold)">Po prawej — ciepłe światło:</b>
+            kino-teatr, lampiony, kultura i ludzie. Ta sama marka, dwa światła
+            obok siebie.
+          </figcaption>
+        </figure>
         <div class="recon">
           <div class="rc keep">
             <div class="h">◆ Zimne światło — technologia</div>
