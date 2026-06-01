@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lucid Academy · Moodboard — Ciepłe światło w mieście AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* — Paleta: Ciepłe światło w mieście AI — */
+    --midnight:#160B33;   /* baza, najgłębszy cień */
+    --indigo:#2A1A5E;     /* dominujący fiolet miasta */
+    --haze:#5A3D9E;       /* poświata, mgła, głębia */
+    --cyan:#45D9FF;       /* TECH neon */
+    --magenta:#FF4D9D;    /* TECH neon */
+    --gold:#FFD23F;       /* KULTURA — sygnaturowy akcent / CTA */
+    --amber:#FFB454;      /* KULTURA — ciepłe okna, lampiony */
+    --lavender:#B9A6F0;   /* tekst drugorzędny */
+    --mist:#E9E3FB;       /* tekst główny */
+    --line:rgba(185,166,240,.16);
+    --glass:rgba(90,61,158,.16);
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--midnight);
+    color:var(--mist);
+    font-family:'Sora',sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* atmosfera: poświata neonów + mgła miasta */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(55vw 55vw at 8% -6%, rgba(69,217,255,.16), transparent 60%),
+      radial-gradient(48vw 48vw at 100% 4%, rgba(255,77,157,.14), transparent 58%),
+      radial-gradient(42vw 42vw at 82% 102%, rgba(255,210,63,.12), transparent 60%),
+      radial-gradient(60vw 60vw at 30% 70%, rgba(42,26,94,.7), transparent 70%);
+  }
+  /* ziarno / deszcz */
+  body::after{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  }
+  .wrap{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 30px}
+  section{padding:70px 0;border-bottom:1px solid var(--line)}
+
+  .eyebrow{
+    font-family:'Sora',sans-serif;font-weight:700;
+    letter-spacing:.3em;text-transform:uppercase;font-size:.66rem;
+    color:var(--cyan);display:inline-flex;align-items:center;gap:.8em;
+    text-shadow:0 0 14px rgba(69,217,255,.55);
+  }
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--cyan);display:inline-block;box-shadow:0 0 10px var(--cyan)}
+
+  h1{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(2.8rem,8vw,6.6rem);line-height:.96;letter-spacing:-.02em;
+    margin:.2em 0 .35em;color:var(--mist);
+  }
+  h1 em{font-style:italic;font-weight:500;color:var(--gold);text-shadow:0 0 28px rgba(255,210,63,.45)}
+  h2{
+    font-family:'Fraunces',serif;font-weight:400;
+    font-size:clamp(1.8rem,4vw,3rem);line-height:1.04;letter-spacing:-.02em;margin-bottom:.25em;color:var(--mist);
+  }
+  h2 em{font-style:italic;color:var(--gold)}
+  h3{font-family:'Sora',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.01em}
+  .lead{font-size:clamp(1.05rem,1.6vw,1.28rem);max-width:62ch;color:var(--lavender);font-weight:300}
+  .muted{color:var(--lavender)}
+  p{max-width:64ch}
+
+  /* HERO */
+  .hero{padding-top:80px;padding-bottom:58px}
+  .conceptchip{
+    margin-top:30px;display:inline-flex;align-items:center;gap:.7em;
+    border:1px solid rgba(255,210,63,.32);border-radius:100px;padding:9px 18px;font-size:.82rem;
+    background:rgba(255,210,63,.07);color:var(--gold);font-weight:600;letter-spacing:.02em;
+  }
+  .tag{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{
+    border:1px solid var(--line);border-radius:100px;padding:8px 16px;font-size:.8rem;
+    background:var(--glass);backdrop-filter:blur(6px);color:var(--lavender);
+  }
+  .chip b{color:var(--mist)}
+
+  /* KEY VISUAL */
+  .kv{margin-top:34px;border-radius:22px;overflow:hidden;position:relative;border:1px solid var(--line);
+    box-shadow:0 40px 90px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(69,217,255,.06)}
+  .kv img{width:100%;display:block}
+  .kv .cap{position:absolute;left:0;right:0;bottom:0;padding:24px 26px;
+    background:linear-gradient(0deg,rgba(11,6,30,.92),transparent);
+    font-size:.86rem;color:var(--lavender)}
+  .kv .cap b{color:var(--gold)}
+
+  /* DWA ŚWIATŁA */
+  .lights{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:32px}
+  .light{border-radius:18px;padding:26px;border:1px solid var(--line);backdrop-filter:blur(8px)}
+  .light.tech{background:linear-gradient(160deg,rgba(69,217,255,.10),rgba(255,77,157,.06));border-color:rgba(69,217,255,.28)}
+  .light.cult{background:linear-gradient(160deg,rgba(255,210,63,.12),rgba(255,180,84,.06));border-color:rgba(255,210,63,.3)}
+  .light .lh{font-family:'Sora',sans-serif;font-weight:800;letter-spacing:.04em;font-size:.78rem;text-transform:uppercase;display:flex;align-items:center;gap:.6em}
+  .light.tech .lh{color:var(--cyan)}
+  .light.cult .lh{color:var(--gold)}
+  .light .big{font-family:'Fraunces',serif;font-size:1.5rem;margin:12px 0 8px;color:var(--mist)}
+  .light p{font-size:.92rem;color:var(--lavender)}
+  .dot{width:11px;height:11px;border-radius:50%}
+  .light.tech .dot{background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+  .light.cult .dot{background:var(--gold);box-shadow:0 0 14px var(--gold)}
+
+  /* PALETA */
+  .swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:30px}
+  .group-label{margin:26px 0 4px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lavender);font-weight:700}
+  .sw{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--indigo)}
+  .sw .col{height:90px;position:relative}
+  .sw .meta{padding:12px 13px}
+  .sw .meta b{display:block;font-size:.85rem;margin-bottom:2px;color:var(--mist)}
+  .sw .meta .hex{font-family:'Sora',monospace;color:var(--lavender);letter-spacing:.05em;font-size:.78rem}
+  .sw .role{display:block;margin-top:6px;color:var(--lavender);font-size:.72rem;line-height:1.4;opacity:.85}
+
+  /* TYPOGRAFIA */
+  .type-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}
+  .type-card{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:28px;backdrop-filter:blur(8px)}
+  .type-card .role-tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);font-weight:700}
+  .type-card .specimen{font-family:'Fraunces',serif;font-weight:300;font-size:3.2rem;line-height:1;letter-spacing:-.02em;margin-top:14px;color:var(--mist)}
+  .type-card .specimen em{font-style:italic;color:var(--gold)}
+  .type-card.body .specimen{font-family:'Sora',sans-serif;font-weight:600;font-size:2rem;letter-spacing:-.01em}
+  .type-card .weights{margin-top:16px;display:flex;flex-direction:column;gap:6px;color:var(--lavender);font-size:.95rem}
+  .type-card.body .weights span:nth-child(1){font-weight:300}
+  .type-card.body .weights span:nth-child(2){font-weight:500}
+  .type-card.body .weights span:nth-child(3){font-weight:700}
+  .type-card .glyphs{margin-top:14px;color:var(--lavender);font-size:.92rem;letter-spacing:.03em;border-top:1px solid var(--line);padding-top:14px}
+  .type-card .note{margin-top:14px;font-size:.84rem;color:var(--lavender)}
+  .type-card .note b{color:var(--mist)}
+
+  /* IKONY */
+  .icons{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:30px}
+  .ico{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:22px 14px;text-align:center;backdrop-filter:blur(6px);transition:transform .2s ease,border-color .2s ease}
+  .ico:hover{transform:translateY(-4px);border-color:rgba(255,210,63,.4)}
+  .ico svg{width:34px;height:34px;stroke:var(--gold);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 8px rgba(255,210,63,.4))}
+  .ico .l{margin-top:12px;font-size:.74rem;color:var(--lavender);letter-spacing:.02em}
+  .icons-note{margin-top:16px;font-size:.85rem;color:var(--lavender)}
+
+  /* UI */
+  .ui-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;margin-top:30px}
+  .demo-card{
+    background:linear-gradient(165deg,rgba(90,61,158,.28),rgba(22,11,51,.5));
+    border:1px solid var(--line);border-radius:22px;padding:28px;backdrop-filter:blur(10px);
+    box-shadow:0 30px 70px -34px rgba(0,0,0,.9);
+  }
+  .pill-ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;
+    background:rgba(255,210,63,.14);border:1px solid rgba(255,210,63,.3)}
+  .pill-ico svg{width:24px;height:24px;stroke:var(--gold);stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .demo-card h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.5rem;margin:16px 0 8px;color:var(--mist)}
+  .demo-card p{font-size:.92rem;color:var(--lavender)}
+  .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+  .btn{font-family:'Sora',sans-serif;font-weight:700;font-size:.92rem;border-radius:100px;
+    padding:13px 24px;cursor:pointer;border:1px solid transparent;transition:transform .18s ease,box-shadow .18s ease;
+    display:inline-flex;align-items:center;gap:.5em}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--gold);color:#2a1d00;box-shadow:0 12px 34px -10px rgba(255,210,63,.6)}
+  .btn-primary:hover{box-shadow:0 16px 40px -10px rgba(255,210,63,.8)}
+  .btn-ghost{background:transparent;color:var(--mist);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--cyan);box-shadow:0 0 24px -6px rgba(69,217,255,.5)}
+  .btn-arrow::after{content:"→";transition:transform .18s ease}
+  .btn:hover .btn-arrow::after{transform:translateX(3px)}
+  .stats{display:flex;gap:30px;margin-top:24px;flex-wrap:wrap}
+  .stat .n{font-family:'Fraunces',serif;font-size:2.4rem;line-height:1;color:var(--gold)}
+  .stat .l{font-size:.76rem;color:var(--lavender);margin-top:4px}
+  .ui-note{margin-top:20px;font-size:.82rem;color:var(--lavender)}
+
+  /* ZDJĘCIA */
+  .img-direction{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+  .col-box{border-radius:18px;padding:24px;border:1px solid var(--line)}
+  .col-box.do{background:rgba(69,217,255,.06);border-color:rgba(69,217,255,.25)}
+  .col-box.dont{background:rgba(255,77,157,.05);border-color:rgba(255,77,157,.24)}
+  .col-box .h{font-family:'Sora',sans-serif;font-weight:800;letter-spacing:.04em;font-size:.92rem;display:flex;align-items:center;gap:.5em;margin-bottom:14px}
+  .col-box.do .h{color:var(--cyan)}
+  .col-box.dont .h{color:var(--magenta)}
+  .col-box ul{list-style:none}
+  .col-box li{padding:9px 0;border-top:1px solid var(--line);font-size:.92rem;color:var(--lavender)}
+  .col-box li:first-child{border-top:0}
+
+  /* TON GŁOSU */
+  .voice{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+  .vb{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:24px;backdrop-filter:blur(6px)}
+  .vb .lab{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lavender);font-weight:700}
+  .vb.yes{border-color:rgba(255,210,63,.3)}
+  .vb .yes-t{font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;color:var(--mist);margin-top:10px}
+  .vb .no-t{font-size:1.05rem;color:var(--lavender);margin-top:10px;text-decoration:line-through;text-decoration-color:rgba(255,77,157,.55);opacity:.7}
+
+  footer{padding:48px 0 80px;color:var(--lavender);font-size:.85rem}
+  footer b{color:var(--mist)}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:880px){
+    .lights,.type-grid,.ui-grid,.img-direction,.voice{grid-template-columns:1fr}
+    .swatches{grid-template-columns:repeat(2,1fr)}
+    .icons{grid-template-columns:repeat(3,1fr)}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero reveal">
+    <span class="eyebrow">Moodboard · Kierunek wizualny</span>
+    <h1>Lucid Academy<br><em>ciepłe światło</em> w mieście AI</h1>
+    <p class="lead">Synthwave'owe miasto nocą — ale jedna zasada robi z niego markę: <b style="color:var(--cyan)">zimny neon to technologia</b>, <b style="color:var(--gold)">ciepłe złoto to kultura i wspólnota</b>. Oba światła świecą obok siebie. To dosłownie misja fundacji: AI nie zastępuje kultury — kultura jaśnieje pośród technologii.</p>
+    <div class="conceptchip">◐ Zasada przewodnia: dwa światła, jedno miasto</div>
+    <div class="tag">
+      <span class="chip">One-page · wizytówka fundacji</span>
+      <span class="chip">Persona: <b>Anna</b> — nietechniczna, lekko zaniepokojona</span>
+      <span class="chip">Cel: <b>zaufanie w 60 s</b> → formularz / social</span>
+    </div>
+  </section>
+
+  <!-- KEY VISUAL -->
+  <section class="reveal">
+    <span class="eyebrow">Key visual · punkt odniesienia</span>
+    <h2>Zatwierdzony <em>kierunek</em></h2>
+    <div class="kv">
+      <img src="../grafiki/wizualizacja-2.jpeg" alt="Key visual — synthwave miasto AI z ciepłym zakątkiem kultury" />
+      <div class="cap">Samotna sylwetka patrzy ku <b>ciepłemu zakątkowi kultury</b> — kino, teatr, galeria, ludzie przy lampionach — pośród chłodnego tech-neonu i mózgu-obwodu. Pixel-art, kinowy nastrój.</div>
+    </div>
+    <div class="lights">
+      <div class="light tech">
+        <div class="lh"><span class="dot"></span>Zimne światło — technologia</div>
+        <div class="big">Cyjan + magenta</div>
+        <p>Neony tech, matrix, dane, mózg-obwód. Buduje klimat i nowoczesność — ale zostaje w <b style="color:var(--cyan)">tle</b>, nie atakuje.</p>
+      </div>
+      <div class="light cult">
+        <div class="lh"><span class="dot"></span>Ciepłe światło — kultura</div>
+        <div class="big">Złoto + bursztyn</div>
+        <p>Okna, lampiony, marquee kina, galeria, ludzie razem. To <b style="color:var(--gold)">akcent i serce</b> — mało, ale przyciąga wzrok i emocje.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PALETA -->
+  <section class="reveal">
+    <span class="eyebrow">Paleta</span>
+    <h2>Fioletowa baza, <em>dwa</em> rodzaje światła</h2>
+    <div class="group-label">Baza i atmosfera</div>
+    <div class="swatches">
+      <div class="sw"><div class="col" style="background:#160B33"></div><div class="meta"><b>Midnight Violet</b><span class="hex">#160B33</span><span class="role">Tło, najgłębszy cień</span></div></div>
+      <div class="sw"><div class="col" style="background:#2A1A5E"></div><div class="meta"><b>Royal Indigo</b><span class="hex">#2A1A5E</span><span class="role">Dominujący fiolet miasta</span></div></div>
+      <div class="sw"><div class="col" style="background:#5A3D9E"></div><div class="meta"><b>City Haze</b><span class="hex">#5A3D9E</span><span class="role">Poświata, mgła, głębia</span></div></div>
+      <div class="sw"><div class="col" style="background:#B9A6F0"></div><div class="meta"><b>Lavender Light</b><span class="hex">#B9A6F0</span><span class="role">Tekst drugorzędny, etykiety</span></div></div>
+      <div class="sw"><div class="col" style="background:#E9E3FB"></div><div class="meta"><b>Soft Mist</b><span class="hex">#E9E3FB</span><span class="role">Tekst główny, nagłówki</span></div></div>
+    </div>
+    <div class="group-label" style="color:var(--cyan)">Zimne światło — technologia</div>
+    <div class="swatches" style="grid-template-columns:repeat(2,1fr);max-width:480px">
+      <div class="sw"><div class="col" style="background:#45D9FF;box-shadow:inset 0 0 40px rgba(69,217,255,.6)"></div><div class="meta"><b>Cyber Cyan</b><span class="hex">#45D9FF</span><span class="role">Mózg-obwód, dane, matrix</span></div></div>
+      <div class="sw"><div class="col" style="background:#FF4D9D;box-shadow:inset 0 0 40px rgba(255,77,157,.5)"></div><div class="meta"><b>Magenta Pulse</b><span class="hex">#FF4D9D</span><span class="role">Neony tech, akcenty</span></div></div>
+    </div>
+    <div class="group-label" style="color:var(--gold)">Ciepłe światło — kultura</div>
+    <div class="swatches" style="grid-template-columns:repeat(2,1fr);max-width:480px">
+      <div class="sw"><div class="col" style="background:#FFD23F;box-shadow:inset 0 0 40px rgba(255,210,63,.5)"></div><div class="meta"><b>Culture Gold</b><span class="hex">#FFD23F</span><span class="role">Sygnatura, CTA, światło kultury</span></div></div>
+      <div class="sw"><div class="col" style="background:#FFB454;box-shadow:inset 0 0 40px rgba(255,180,84,.5)"></div><div class="meta"><b>Amber Glow</b><span class="hex">#FFB454</span><span class="role">Ciepłe okna, lampiony</span></div></div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAFIA -->
+  <section class="reveal">
+    <span class="eyebrow">Typografia</span>
+    <h2>Ciepły <em>serif</em> + czysty grotesk</h2>
+    <div class="type-grid">
+      <div class="type-card">
+        <div class="role-tag">Display</div>
+        <div class="specimen">Lucid <em>Academy</em></div>
+        <div class="weights" style="font-family:'Fraunces',serif">
+          <span style="font-weight:300">Light — nagłówki hero</span>
+          <span style="font-weight:500;font-style:italic">Italic — akcenty emocjonalne</span>
+        </div>
+        <div class="glyphs">Aa Bb Cc — ąćęłńóśźż 0123456789</div>
+        <div class="note"><b>Fraunces</b> — serif z charakterem i miękką, „ludzką" kursywą. Daje ciepło i powagę naraz; równoważy chłód technologicznego tła.</div>
+      </div>
+      <div class="type-card body">
+        <div class="role-tag" style="color:var(--gold)">Tekst &amp; UI</div>
+        <div class="specimen">Po ludzku, bez żargonu.</div>
+        <div class="weights">
+          <span>Light 300 — leady, cytaty</span>
+          <span>Medium 500 — tekst, nawigacja</span>
+          <span>Bold 700 — etykiety, przyciski</span>
+        </div>
+        <div class="glyphs">Aa Bb Cc — ąćęłńóśźż 0123456789</div>
+        <div class="note"><b>Sora</b> — czysty, geometryczny grotesk. Świetna czytelność na ciemnym tle, nowoczesny ton bez chłodu korporacji.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IKONY -->
+  <section class="reveal">
+    <span class="eyebrow">Ikonografia</span>
+    <h2>Linia, <em>zaokrąglona</em>, przyjazna</h2>
+    <div class="icons">
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 0 1-.9-3.8A8.38 8.38 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg><div class="l">Rozmowa</div></div>
+      <div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="7" r="2.3"/><path d="M16 14.2c2.6.3 4.6 2.5 4.6 5.1"/></svg><div class="l">Wspólnota</div></div>
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.3 1 2.1h5c0-.8.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg><div class="l">Edukacja</div></div>
+      <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polygon points="15.5 8.5 10.5 10.5 8.5 15.5 13.5 13.5"/></svg><div class="l">Kierunek</div></div>
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1l1.7 1.7L12 21l7.1-7.1 1.7-1.7a5 5 0 0 0 0-7.1z"/></svg><div class="l">Zaufanie</div></div>
+      <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1"/></svg><div class="l">AI / iskra</div></div>
+    </div>
+    <p class="icons-note">Stała grubość linii, miękkie narożniki, złota poświata. Ikony mają być <b style="color:var(--mist)">ludzkie i przystępne</b> — nigdy ostre, „techniczne" piktogramy, których Anna ma się bać.</p>
+  </section>
+
+  <!-- KOMPONENTY UI -->
+  <section class="reveal">
+    <span class="eyebrow">Komponenty UI</span>
+    <h2>Złoto = <em>akcja</em>, reszta oddycha</h2>
+    <div class="ui-grid">
+      <div class="demo-card">
+        <div class="pill-ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1M2 12h20"/></svg></div>
+        <h4>Edukacja AI po ludzku</h4>
+        <p>Karta na półprzezroczystym szkle z neonową poświatą. Jedna karta = jeden obszar oferty. Złota ikona prowadzi wzrok.</p>
+        <div class="stats">
+          <div class="stat"><div class="n">1200+</div><div class="l">przeszkolonych</div></div>
+          <div class="stat"><div class="n">50+</div><div class="l">projektów</div></div>
+          <div class="stat"><div class="n">80+</div><div class="l">partnerów</div></div>
+        </div>
+      </div>
+      <div class="demo-card">
+        <h4 style="margin-top:0">Dwa jasne ruchy</h4>
+        <p>PRD wymaga dokładnie dwóch działań. Hierarchia przycisków to odzwierciedla: jedno główne (złote), jedno poboczne (ghost).</p>
+        <div class="btn-row">
+          <button class="btn btn-primary"><span class="btn-arrow">Napisz do nas</span></button>
+          <button class="btn btn-ghost"><span class="btn-arrow">Social fundacji</span></button>
+        </div>
+        <p class="ui-note">Złoty = akcja docelowa (formularz). Ghost z cyjanową poświatą na hover = ruch poboczny (social). Nigdy dwa krzykliwe CTA naraz.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KIERUNEK ZDJĘĆ -->
+  <section class="reveal">
+    <span class="eyebrow">Kierunek grafik i zdjęć</span>
+    <h2>Technologia w tle, <em>kultura</em> w świetle</h2>
+    <div class="img-direction">
+      <div class="col-box do">
+        <div class="h">✓ Tak</div>
+        <ul>
+          <li>Synthwave pixel-art / kinowa ilustracja, jak key visual</li>
+          <li>Ciepłe złoto = kultura: kino, teatr, galeria, lampiony, ludzie razem</li>
+          <li>Samotna sylwetka zwrócona ku ciepłu — nadzieja, nie samotność</li>
+          <li>Zimny neon + mózg-obwód jako atmosfera w tle</li>
+          <li>Deszcz, mokre refleksy, ziarno — autentyczny nastrój</li>
+        </ul>
+      </div>
+      <div class="col-box dont">
+        <div class="h">✕ Nie</div>
+        <ul>
+          <li>Sterylny „mózg-diagram" z obwodów jako bohater (jak M_3)</li>
+          <li>Zimna dystopia bez ludzi i bez ciepłego światła</li>
+          <li>Stockowe roboty, hologramy, żargon technologiczny</li>
+          <li>Złoto rozlane wszędzie — traci rolę „akcentu kultury"</li>
+          <li>Ciepłe, „edytorskie" foto bez synthwave'owego klimatu</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TON GŁOSU -->
+  <section class="reveal">
+    <span class="eyebrow">Ton głosu</span>
+    <h2>Mówimy jak <em>zaufany</em> człowiek</h2>
+    <div class="voice">
+      <div class="vb yes"><span class="lab">Piszemy</span><div class="yes-t">„Pomożemy Wam oswoić AI — spokojnie, krok po kroku."</div></div>
+      <div class="vb"><span class="lab">Nie piszemy</span><div class="no-t">„Wdrażamy innowacyjne rozwiązania AI nowej generacji."</div></div>
+    </div>
+  </section>
+
+  <footer class="reveal">
+    <p><b>Lucid Academy · Moodboard kierunku wizualnego</b> — „Ciepłe światło w mieście AI". Przygotowany przez Leylę dla Kubsona, zakotwiczony w PRD, personie „Anny" i zatwierdzonym key visualu.</p>
+    <p style="margin-top:8px">Następny krok: wariant tła pod hero (spokojna strefa na tekst) lub start kodowania strony one-page.</p>
+  </footer>
+
+</div>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i*70)+'ms';io.observe(el)});
+</script>
+</body>
+</html>

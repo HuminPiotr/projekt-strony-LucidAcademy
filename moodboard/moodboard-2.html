@@ -1,0 +1,1473 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lucid Academy · Moodboard v2 — Ciepłe światło w mieście AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #100a22; /* baza, ciepło-ciemna noc */
+        --ink-2: #160b33;
+        --indigo: #2a1a5e;
+        --haze: #5a3d9e;
+        --cyan: #45d9ff; /* tech */
+        --magenta: #ff4d9d; /* tech */
+        --gold: #ffd23f; /* ciepło / kultura / CTA */
+        --amber: #ffb454; /* ciepłe światło */
+        --lavender: #b9a6f0;
+        --mist: #e9e3fb;
+        --line: rgba(185, 166, 240, 0.16);
+        --glass: rgba(90, 61, 158, 0.16);
+        --maxw: 1200px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--ink);
+        color: var(--mist);
+        font-family: "Sora", sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            55vw 55vw at 8% -6%,
+            rgba(69, 217, 255, 0.14),
+            transparent 60%
+          ),
+          radial-gradient(
+            48vw 48vw at 100% 4%,
+            rgba(255, 77, 157, 0.12),
+            transparent 58%
+          ),
+          radial-gradient(
+            45vw 45vw at 78% 96%,
+            rgba(255, 210, 63, 0.14),
+            transparent 60%
+          ),
+          radial-gradient(
+            60vw 60vw at 30% 70%,
+            rgba(42, 26, 94, 0.6),
+            transparent 70%
+          );
+      }
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.5;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+      }
+      .wrap {
+        position: relative;
+        z-index: 1;
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      section {
+        padding: 68px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        font-family: "Sora", sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        font-size: 0.66rem;
+        color: var(--gold);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8em;
+        text-shadow: 0 0 14px rgba(255, 210, 63, 0.45);
+      }
+      .eyebrow::before {
+        content: "";
+        width: 28px;
+        height: 2px;
+        background: var(--gold);
+        display: inline-block;
+        box-shadow: 0 0 10px var(--gold);
+      }
+      h1 {
+        font-family: "Fraunces", serif;
+        font-weight: 300;
+        font-size: clamp(2.8rem, 8vw, 6.6rem);
+        line-height: 0.96;
+        letter-spacing: -0.02em;
+        margin: 0.2em 0 0.35em;
+        color: var(--mist);
+      }
+      h1 em {
+        font-style: italic;
+        font-weight: 500;
+        color: var(--gold);
+        text-shadow: 0 0 28px rgba(255, 210, 63, 0.45);
+      }
+      h2 {
+        font-family: "Sora", sans-serif;
+        font-weight: 700;
+        font-size: clamp(1.7rem, 3.6vw, 2.7rem);
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.25em;
+        color: var(--mist);
+      }
+      h2 em {
+        font-style: normal;
+        color: var(--gold);
+      }
+      .lead {
+        font-size: clamp(1.05rem, 1.6vw, 1.28rem);
+        max-width: 64ch;
+        color: var(--lavender);
+        font-weight: 300;
+      }
+      .muted {
+        color: var(--lavender);
+      }
+      p {
+        max-width: 64ch;
+      }
+      b.cy {
+        color: var(--cyan);
+      }
+      b.go {
+        color: var(--gold);
+      }
+
+      .pill-top {
+        margin-top: 26px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6em;
+        border: 1px solid rgba(255, 210, 63, 0.32);
+        border-radius: 100px;
+        padding: 9px 18px;
+        font-size: 0.82rem;
+        background: rgba(255, 210, 63, 0.07);
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .tag {
+        margin-top: 22px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .chip {
+        border: 1px solid var(--line);
+        border-radius: 100px;
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        background: var(--glass);
+        backdrop-filter: blur(6px);
+        color: var(--lavender);
+      }
+      .chip b {
+        color: var(--mist);
+      }
+
+      /* REKONCYLIACJA */
+      .recon {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+        margin-top: 30px;
+      }
+      .rc {
+        border-radius: 18px;
+        padding: 26px;
+        border: 1px solid var(--line);
+        backdrop-filter: blur(8px);
+      }
+      .rc.keep {
+        background: linear-gradient(
+          160deg,
+          rgba(69, 217, 255, 0.1),
+          rgba(255, 77, 157, 0.05)
+        );
+        border-color: rgba(69, 217, 255, 0.28);
+      }
+      .rc.add {
+        background: linear-gradient(
+          160deg,
+          rgba(255, 210, 63, 0.12),
+          rgba(255, 180, 84, 0.06)
+        );
+        border-color: rgba(255, 210, 63, 0.3);
+      }
+      .rc .h {
+        font-family: "Sora", sans-serif;
+        font-weight: 800;
+        letter-spacing: 0.03em;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 0.6em;
+        margin-bottom: 6px;
+      }
+      .rc.keep .h {
+        color: var(--cyan);
+      }
+      .rc.add .h {
+        color: var(--gold);
+      }
+      .rc .sub {
+        font-size: 0.82rem;
+        color: var(--lavender);
+        margin-bottom: 14px;
+      }
+      .rc ul {
+        list-style: none;
+      }
+      .rc li {
+        padding: 9px 0;
+        border-top: 1px dashed var(--line);
+        font-size: 0.95rem;
+        color: #d9d3ea;
+      }
+      .rc li:first-child {
+        border-top: 0;
+      }
+
+      /* EWOLUCJA before/after */
+      .evo {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 18px;
+        align-items: center;
+        margin-top: 30px;
+      }
+      .evo figure {
+        margin: 0;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: var(--ink-2);
+        position: relative;
+      }
+      .evo img {
+        width: 100%;
+        display: block;
+        height: 230px;
+        object-fit: cover;
+      }
+      .evo figcaption {
+        padding: 14px 16px;
+        font-size: 0.85rem;
+        color: var(--lavender);
+      }
+      .evo figcaption b {
+        display: block;
+        font-family: "Sora", sans-serif;
+        font-weight: 700;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .evo .before figcaption b {
+        color: var(--cyan);
+      }
+      .evo .after figcaption b {
+        color: var(--gold);
+      }
+      .evo .arrow {
+        font-size: 2rem;
+        color: var(--gold);
+        text-align: center;
+      }
+
+      /* KEY VISUAL */
+      .kv {
+        margin-top: 30px;
+        border-radius: 22px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid var(--line);
+        box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.9);
+      }
+      .kv img {
+        width: 100%;
+        display: block;
+      }
+      .kv .cap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 24px 26px;
+        background: linear-gradient(0deg, rgba(11, 6, 30, 0.94), transparent);
+        font-size: 0.86rem;
+        color: var(--lavender);
+      }
+      .kv .cap b {
+        color: var(--gold);
+      }
+
+      /* PALETA */
+      .swatches {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 14px;
+        margin-top: 26px;
+      }
+      .group-label {
+        margin: 24px 0 4px;
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--lavender);
+        font-weight: 700;
+      }
+      .sw {
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: var(--indigo);
+      }
+      .sw .col {
+        height: 84px;
+      }
+      .sw .meta {
+        padding: 11px 12px;
+      }
+      .sw .meta b {
+        display: block;
+        font-size: 0.83rem;
+        margin-bottom: 2px;
+        color: var(--mist);
+      }
+      .sw .meta .hex {
+        font-family: "Sora", monospace;
+        color: var(--lavender);
+        letter-spacing: 0.05em;
+        font-size: 0.76rem;
+      }
+      .sw .role {
+        display: block;
+        margin-top: 5px;
+        color: var(--lavender);
+        font-size: 0.7rem;
+        line-height: 1.4;
+        opacity: 0.85;
+      }
+
+      /* TYPO */
+      .type-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+        margin-top: 28px;
+      }
+      .type-card {
+        background: var(--glass);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 26px;
+        backdrop-filter: blur(8px);
+      }
+      .type-card .rt {
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--cyan);
+        font-weight: 700;
+      }
+      .type-card .spec {
+        font-family: "Sora", sans-serif;
+        font-weight: 800;
+        font-size: 2.6rem;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        margin-top: 12px;
+        color: var(--mist);
+      }
+      .type-card.alt .spec {
+        font-family: "Fraunces", serif;
+        font-weight: 400;
+        font-style: italic;
+        font-size: 2.4rem;
+      }
+      .type-card .w {
+        margin-top: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        color: var(--lavender);
+        font-size: 0.95rem;
+      }
+      .type-card .glyphs {
+        margin-top: 12px;
+        color: var(--lavender);
+        font-size: 0.9rem;
+        border-top: 1px solid var(--line);
+        padding-top: 12px;
+      }
+      .type-card .note {
+        margin-top: 12px;
+        font-size: 0.83rem;
+        color: var(--lavender);
+      }
+      .type-card .note b {
+        color: var(--mist);
+      }
+
+      /* IKONY */
+      .icons {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 14px;
+        margin-top: 26px;
+      }
+      .ico {
+        background: var(--glass);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 20px 12px;
+        text-align: center;
+        backdrop-filter: blur(6px);
+      }
+      .ico svg {
+        width: 32px;
+        height: 32px;
+        stroke: var(--gold);
+        stroke-width: 1.6;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        filter: drop-shadow(0 0 8px rgba(255, 210, 63, 0.4));
+      }
+      .ico .l {
+        margin-top: 10px;
+        font-size: 0.72rem;
+        color: var(--lavender);
+      }
+
+      /* UI */
+      .ui-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 22px;
+        margin-top: 28px;
+      }
+      .demo-card {
+        background: linear-gradient(
+          165deg,
+          rgba(90, 61, 158, 0.28),
+          rgba(16, 10, 34, 0.5)
+        );
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 28px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.9);
+      }
+      .pill-ico {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: rgba(255, 210, 63, 0.14);
+        border: 1px solid rgba(255, 210, 63, 0.3);
+      }
+      .pill-ico svg {
+        width: 24px;
+        height: 24px;
+        stroke: var(--gold);
+        stroke-width: 1.7;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .demo-card h4 {
+        font-family: "Sora", sans-serif;
+        font-weight: 700;
+        font-size: 1.4rem;
+        margin: 16px 0 8px;
+        color: var(--mist);
+      }
+      .demo-card p {
+        font-size: 0.92rem;
+        color: var(--lavender);
+      }
+      .btn-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+      }
+      .btn {
+        font-family: "Sora", sans-serif;
+        font-weight: 700;
+        font-size: 0.92rem;
+        border-radius: 100px;
+        padding: 13px 24px;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition:
+          transform 0.18s,
+          box-shadow 0.18s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: var(--gold);
+        color: #2a1d00;
+        box-shadow: 0 12px 34px -10px rgba(255, 210, 63, 0.6);
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--mist);
+        border-color: var(--line);
+      }
+      .btn-ghost:hover {
+        border-color: var(--cyan);
+        box-shadow: 0 0 24px -6px rgba(69, 217, 255, 0.5);
+      }
+      .btn-arrow::after {
+        content: "→";
+        transition: transform 0.18s;
+      }
+      .btn:hover .btn-arrow::after {
+        transform: translateX(3px);
+      }
+      .stats {
+        display: flex;
+        gap: 28px;
+        margin-top: 24px;
+        flex-wrap: wrap;
+      }
+      .stat .n {
+        font-family: "Sora", sans-serif;
+        font-weight: 800;
+        font-size: 2.2rem;
+        line-height: 1;
+        color: var(--gold);
+      }
+      .stat .l {
+        font-size: 0.74rem;
+        color: var(--lavender);
+        margin-top: 4px;
+      }
+
+      /* TAK/NIE */
+      .dirs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+        margin-top: 28px;
+      }
+      .cb {
+        border-radius: 18px;
+        padding: 24px;
+        border: 1px solid var(--line);
+      }
+      .cb.do {
+        background: rgba(255, 210, 63, 0.06);
+        border-color: rgba(255, 210, 63, 0.26);
+      }
+      .cb.no {
+        background: rgba(255, 77, 157, 0.05);
+        border-color: rgba(255, 77, 157, 0.24);
+      }
+      .cb .h {
+        font-family: "Sora", sans-serif;
+        font-weight: 800;
+        font-size: 0.92rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        margin-bottom: 14px;
+      }
+      .cb.do .h {
+        color: var(--gold);
+      }
+      .cb.no .h {
+        color: var(--magenta);
+      }
+      .cb ul {
+        list-style: none;
+      }
+      .cb li {
+        padding: 9px 0;
+        border-top: 1px solid var(--line);
+        font-size: 0.92rem;
+        color: var(--lavender);
+      }
+      .cb li:first-child {
+        border-top: 0;
+      }
+
+      /* DOWÓD */
+      .proof {
+        margin-top: 26px;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 22px;
+        align-items: center;
+      }
+      .proof figure {
+        margin: 0;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+      }
+      .proof img {
+        width: 100%;
+        display: block;
+      }
+
+      /* Z PRAC GRAFICZEK */
+      .sources {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+        margin-top: 26px;
+      }
+      .source {
+        background: var(--glass);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px;
+        backdrop-filter: blur(8px);
+      }
+      .source figure {
+        margin: 0 0 14px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+      }
+      .source img {
+        width: 100%;
+        display: block;
+        height: 210px;
+        object-fit: cover;
+      }
+      .src-tag {
+        font-family: "Sora", sans-serif;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        margin-bottom: 2px;
+      }
+      .src-tag.a {
+        color: var(--gold);
+      }
+      .src-tag.m {
+        color: var(--cyan);
+      }
+      .source .sg b,
+      .source .sp b {
+        display: block;
+        font-size: 0.76rem;
+        letter-spacing: 0.02em;
+        margin: 13px 0 6px;
+      }
+      .source .sg b {
+        color: var(--gold);
+      }
+      .source .sp b {
+        color: var(--magenta);
+      }
+      .source ul {
+        list-style: none;
+      }
+      .source li {
+        padding: 6px 0;
+        border-top: 1px solid var(--line);
+        font-size: 0.88rem;
+        color: var(--lavender);
+      }
+      .source li:first-child {
+        border-top: 0;
+      }
+
+      /* PODRÓŻ — od mroku ku ciepłu */
+      .journey {
+        margin-top: 30px;
+        position: relative;
+        padding-left: 34px;
+      }
+      .journey::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        bottom: 8px;
+        width: 3px;
+        border-radius: 3px;
+        background: linear-gradient(
+          180deg,
+          #45d9ff 0%,
+          #5a3d9e 32%,
+          #ff4d9d 52%,
+          #ffb454 80%,
+          #ffd23f 100%
+        );
+        box-shadow: 0 0 16px rgba(255, 210, 63, 0.3);
+      }
+      .jstep {
+        position: relative;
+        padding: 0 0 24px 6px;
+      }
+      .jstep:last-child {
+        padding-bottom: 0;
+      }
+      .jstep::before {
+        content: "";
+        position: absolute;
+        left: -34px;
+        top: 3px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: 3px solid var(--ink);
+      }
+      .jstep.s1::before {
+        background: #45d9ff;
+        box-shadow: 0 0 12px #45d9ff;
+      }
+      .jstep.s2::before {
+        background: #7b6cf6;
+        box-shadow: 0 0 12px #7b6cf6;
+      }
+      .jstep.s3::before {
+        background: #ffb454;
+        box-shadow: 0 0 12px #ffb454;
+      }
+      .jstep.s4::before {
+        background: #ffd23f;
+        box-shadow: 0 0 14px #ffd23f;
+      }
+      .jstep h4 {
+        font-family: "Sora", sans-serif;
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--mist);
+        margin-bottom: 3px;
+      }
+      .jstep .anna {
+        font-size: 0.84rem;
+        color: var(--lavender);
+        margin-bottom: 5px;
+      }
+      .jstep .anna b {
+        color: var(--cyan);
+      }
+      .jstep p {
+        font-size: 0.92rem;
+        color: #d9d3ea;
+        max-width: 58ch;
+      }
+      .jstep p .go {
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .warm-pole {
+        margin: 28px 0 0;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 210, 63, 0.3);
+        box-shadow: 0 30px 70px -36px rgba(0, 0, 0, 0.85);
+      }
+      .warm-pole img {
+        width: 100%;
+        display: block;
+      }
+      .warm-pole figcaption {
+        padding: 16px 18px;
+        font-size: 0.86rem;
+        color: var(--lavender);
+        background: rgba(255, 210, 63, 0.05);
+      }
+      .warm-pole figcaption b {
+        color: var(--gold);
+      }
+      .warm-pole figcaption em {
+        font-style: italic;
+        color: var(--mist);
+      }
+
+      /* OCIEPLANIE TŁA przy scrollu (pokazuje koncepcję na żywo) */
+      .warmth {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.15s linear;
+        background:
+          radial-gradient(
+            85vw 65vh at 50% 122%,
+            rgba(255, 210, 63, 0.3),
+            transparent 60%
+          ),
+          radial-gradient(
+            70vw 55vh at 82% 112%,
+            rgba(255, 140, 60, 0.2),
+            transparent 60%
+          );
+      }
+
+      footer {
+        padding: 46px 0 80px;
+        color: var(--lavender);
+        font-size: 0.85rem;
+      }
+      footer b {
+        color: var(--mist);
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+      @media (max-width: 880px) {
+        .recon,
+        .type-grid,
+        .ui-grid,
+        .dirs,
+        .proof,
+        .sources {
+          grid-template-columns: 1fr;
+        }
+        .evo {
+          grid-template-columns: 1fr;
+        }
+        .evo .arrow {
+          transform: rotate(90deg);
+        }
+        .swatches {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .icons {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="warmth"></div>
+    <div class="wrap">
+      <!-- HERO -->
+      <section class="reveal">
+        <span class="eyebrow">Moodboard v2 · kierunek do akceptacji</span>
+        <h1>Lucid Academy<br /><em>ciepłe światło</em> w mieście AI</h1>
+        <p class="lead">
+          Synthwave'owe miasto nocą — ale jedna zasada robi z niego markę:
+          <b class="cy">zimny neon to technologia</b>,
+          <b class="go">ciepłe złoto to kultura i wspólnota</b>. Oba światła
+          świecą obok siebie. To dosłownie misja fundacji:
+          <b>AI nie zastępuje kultury — kultura jaśnieje pośród technologii.</b>
+        </p>
+        <div class="pill-top">◑ Dwa światła, jedno miasto</div>
+        <div class="tag">
+          <span class="chip">One-page · wizytówka fundacji</span>
+          <span class="chip"
+            >Odbiorca: <b>Anna</b> — nietechniczna, lekko spłoszona AI</span
+          >
+          <span class="chip">Cel: <b>zaufanie w 60 s</b> → kontakt</span>
+        </div>
+      </section>
+
+      <!-- ZASADA: DWA ŚWIATŁA -->
+      <section class="reveal">
+        <span class="eyebrow">Zasada przewodnia</span>
+        <h2>Dwa <em>światła</em>, jedno miasto</h2>
+        <p class="muted">
+          Jedna prosta reguła porządkuje całą markę: technologia świeci na
+          zimno, kultura na ciepło — i oba światła są na tym samym kadrze.
+        </p>
+        <div class="recon">
+          <div class="rc keep">
+            <div class="h">◆ Zimne światło — technologia</div>
+            <div class="sub">cyjan + magenta · nowoczesność i AI</div>
+            <ul>
+              <li>Neon, sieć neuronowa, mózg-obwód, dane</li>
+              <li>Buduje klimat „high-tech" i wiarygodność</li>
+              <li>Zostaje w tle jako energia — nie atakuje</li>
+            </ul>
+          </div>
+          <div class="rc add">
+            <div class="h">＋ Ciepłe światło — kultura</div>
+            <div class="sub">złoto + bursztyn · wspólnota i CTA</div>
+            <ul>
+              <li>Okna, lampiony, ludzie, sygnaturowy blask</li>
+              <li>
+                Mały, ale <b class="go">mocny akcent</b> — przyciąga wzrok i
+                serce
+              </li>
+              <li><b>„Kultura jaśnieje pośród technologii"</b></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Z PRAC GRAFICZEK -->
+      <section class="reveal">
+        <span class="eyebrow">Z prac graficzek</span>
+        <h2>Co <em>bierzemy</em>, co poprawiamy</h2>
+        <p class="muted">
+          Dwie propozycje wyjściowe — Alicja i Martyna. Z każdej zabieramy to,
+          co najlepsze, i nazywamy problem, którego unikamy. Nasz kierunek to
+          ich synteza.
+        </p>
+        <div class="sources">
+          <div class="source">
+            <figure>
+              <img src="../grafiki/A_1.jpg" alt="Praca graficzki Alicji" />
+            </figure>
+            <div class="src-tag a">Praca Alicji — charakter</div>
+            <div class="sg">
+              <b>✓ Co bierzemy</b>
+              <ul>
+                <li>Odważna, edytorska typografia z charakterem</li>
+                <li>Żółć jako energiczna sygnatura marki</li>
+                <li>
+                  Ciepła, kulturalna energia — nasz nośnik
+                  <b style="color: var(--mist)">ludzkiego akcentu</b>
+                </li>
+              </ul>
+            </div>
+            <div class="sp">
+              <b>✕ Co poprawiamy</b>
+              <ul>
+                <li>Dekoracja kosztem czytelności i hierarchii</li>
+              </ul>
+            </div>
+          </div>
+          <div class="source">
+            <figure>
+              <img src="../grafiki/M_3.png" alt="Praca graficzki Martyny" />
+            </figure>
+            <div class="src-tag m">Praca Martyny — struktura</div>
+            <div class="sg">
+              <b>✓ Co bierzemy</b>
+              <ul>
+                <li>Spójna struktura one-page i czytelne CTA</li>
+                <li>Liczniki zaufania (1200+, 80+) i klimat AI</li>
+                <li>Uporządkowane karty obszarów oferty</li>
+              </ul>
+            </div>
+            <div class="sp">
+              <b>✕ Co poprawiamy</b>
+              <ul>
+                <li>Generyczny „AI-startup" — łatwo pomylić z firmą</li>
+                <li>Dosłowny mózg-obwód: zimny, może spłoszyć Annę</li>
+                <li>Brak ludzi i ciepła — sama technologia</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PODRÓŻ — OD MROKU KU CIEPŁU -->
+      <section class="reveal">
+        <span class="eyebrow">Doświadczenie · podróż w dół</span>
+        <h2>Od <em>mroku</em> ku <em>ciepłu</em></h2>
+        <p class="muted">
+          Strona zaczyna się dość mrocznie i technologicznie — a wraz ze
+          scrollowaniem rozjaśnia się ciepłem, ludźmi i kulturą. To nie
+          dekoracja: tak prowadzimy Annę
+          <b style="color: var(--mist)">od wątpliwości do zaufania</b>. (Tło
+          tego moodboardu też się ociepla w dół — przewiń, żeby zobaczyć.)
+        </p>
+        <div class="journey">
+          <div class="jstep s1">
+            <h4>1 · Pierwsze wrażenie — intryga</h4>
+            <div class="anna">Anna: <b>niepewność, lekki lęk przed AI</b></div>
+            <p>
+              Mroczny, nowoczesny hero z jednym małym złotym światłem. Cel:
+              <span class="go">rozbić pierwszą wątpliwość</span> i wzbudzić
+              ciekawość — „to nie jest straszne, to wciąga".
+            </p>
+          </div>
+          <div class="jstep s2">
+            <h4>2 · Zrozumienie — „oni mnie rozumieją"</h4>
+            <div class="anna">Anna: <b>ciekawość rośnie, opada gard</b></div>
+            <p>
+              Nazywamy jej obawy po ludzku, bez żargonu. Pojawiają się pierwsze
+              ciepłe akcenty. Cel:
+              <span class="go">zbudować poczucie bezpieczeństwa</span>.
+            </p>
+          </div>
+          <div class="jstep s3">
+            <h4>3 · Ludzie i kultura — zaufanie</h4>
+            <div class="anna">Anna: <b>zaufanie, sympatia</b></div>
+            <p>
+              Twarze, historie, wspólnota, kultura — tu jest najwięcej ciepła i
+              złota, z edytorską energią pracy Alicji. Cel:
+              <span class="go">pokazać ludzki akcent</span> i dowieść „za tym
+              stoją ludzie jak ja".
+            </p>
+          </div>
+          <div class="jstep s4">
+            <h4>4 · Kontakt — zaproszenie</h4>
+            <div class="anna">Anna: <b>gotowość, by napisać</b></div>
+            <p>
+              Najcieplejsza, zapraszająca sekcja z jednym złotym CTA. Cel:
+              <span class="go">naturalna decyzja o kontakcie</span>.
+            </p>
+          </div>
+        </div>
+        <figure class="warm-pole">
+          <img
+            src="../grafiki/koncepcje/lucid-swit-1.png"
+            alt="Biegun ciepła — najwyższy poziom ludzkiego wymiaru i zaufania"
+          />
+          <figcaption>
+            <b>Biegun ciepła — dokąd zmierza dół strony.</b> Tu docieramy
+            emocjonalnie: najwyższy poziom
+            <em>ludzkiego wymiaru, zaufania i ciepła</em> — twarze, wspólnota,
+            kultura. (Chodzi o <em>poziom ciepła i człowieczeństwa</em>, nie o
+            jasne tło — nasza baza pozostaje ciemna.)
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- EWOLUCJA -->
+      <section class="reveal">
+        <span class="eyebrow">Ewolucja, nie rewolucja</span>
+        <h2>Ten sam świat — <em>cieplejsza</em> temperatura</h2>
+        <div class="evo">
+          <figure class="before">
+            <img
+              src="../grafiki/koncepcje/grafika_1.jpeg"
+              alt="Czysty cyberpunk — punkt wyjścia"
+            />
+            <figcaption>
+              <b>Punkt wyjścia</b>Mocny klimat AI, ale chłodny — ryzyko, że
+              spłoszy nietechniczną Annę.
+            </figcaption>
+          </figure>
+          <div class="arrow">→</div>
+          <figure class="after">
+            <img
+              src="../grafiki/koncepcje/lucid-swit-2.png"
+              alt="Ten sam świat + złote światło i człowiek"
+            />
+            <figcaption>
+              <b>Dokąd idziemy</b>Ten sam ciemny świat AI + mocny złoty błysk i
+              sylwetka idąca ku światłu.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- KEY VISUAL -->
+      <section class="reveal">
+        <span class="eyebrow">Kierunek · north star</span>
+        <h2>Noc dominuje, <em>złoto</em> przyciąga</h2>
+        <div class="kv">
+          <img
+            src="../grafiki/koncepcje/lucid-swit-2.png"
+            alt="Key visual — ciemne miasto AI z mocnym złotym światłem"
+          />
+          <div class="cap">
+            Noc i technologia zajmują ~80% kadru;
+            <b>mały, intensywny złoty punkt światła</b> na horyzoncie i sylwetka
+            idąca ku niemu = nowoczesne AI, które daje nadzieję, nie straszy.
+          </div>
+        </div>
+      </section>
+
+      <!-- PALETA -->
+      <section class="reveal">
+        <span class="eyebrow">Paleta</span>
+        <h2>Ciemna baza, <em>dwa</em> światła</h2>
+        <div class="group-label">Baza — noc, technologia</div>
+        <div class="swatches">
+          <div class="sw">
+            <div class="col" style="background: #100a22"></div>
+            <div class="meta">
+              <b>Ink</b><span class="hex">#100A22</span
+              ><span class="role">Tło bazowe</span>
+            </div>
+          </div>
+          <div class="sw">
+            <div class="col" style="background: #2a1a5e"></div>
+            <div class="meta">
+              <b>Royal Indigo</b><span class="hex">#2A1A5E</span
+              ><span class="role">Fiolet miasta</span>
+            </div>
+          </div>
+          <div class="sw">
+            <div
+              class="col"
+              style="
+                background: #45d9ff;
+                box-shadow: inset 0 0 36px rgba(69, 217, 255, 0.55);
+              "
+            ></div>
+            <div class="meta">
+              <b>Cyber Cyan</b><span class="hex">#45D9FF</span
+              ><span class="role">Neon tech, AI</span>
+            </div>
+          </div>
+          <div class="sw">
+            <div
+              class="col"
+              style="
+                background: #ff4d9d;
+                box-shadow: inset 0 0 36px rgba(255, 77, 157, 0.5);
+              "
+            ></div>
+            <div class="meta">
+              <b>Magenta</b><span class="hex">#FF4D9D</span
+              ><span class="role">Neon, akcent</span>
+            </div>
+          </div>
+          <div class="sw">
+            <div class="col" style="background: #b9a6f0"></div>
+            <div class="meta">
+              <b>Lavender</b><span class="hex">#B9A6F0</span
+              ><span class="role">Tekst drugorzędny</span>
+            </div>
+          </div>
+        </div>
+        <div class="group-label" style="color: var(--gold)">
+          Ciepłe światło — człowiek, kultura, CTA
+        </div>
+        <div
+          class="swatches"
+          style="grid-template-columns: repeat(3, 1fr); max-width: 660px"
+        >
+          <div class="sw">
+            <div
+              class="col"
+              style="
+                background: #ffd23f;
+                box-shadow: inset 0 0 36px rgba(255, 210, 63, 0.5);
+              "
+            ></div>
+            <div class="meta">
+              <b>Culture Gold</b><span class="hex">#FFD23F</span
+              ><span class="role">Sygnatura, światło, CTA</span>
+            </div>
+          </div>
+          <div class="sw">
+            <div
+              class="col"
+              style="
+                background: #ffb454;
+                box-shadow: inset 0 0 36px rgba(255, 180, 84, 0.5);
+              "
+            ></div>
+            <div class="meta">
+              <b>Amber Glow</b><span class="hex">#FFB454</span
+              ><span class="role">Ciepłe okna, blask</span>
+            </div>
+          </div>
+          <div class="sw">
+            <div class="col" style="background: #e9e3fb"></div>
+            <div class="meta">
+              <b>Soft Mist</b><span class="hex">#E9E3FB</span
+              ><span class="role">Tekst główny</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TYPOGRAFIA -->
+      <section class="reveal">
+        <span class="eyebrow">Typografia</span>
+        <h2>Nowoczesny <em>sans</em> prowadzi</h2>
+        <div class="type-grid">
+          <div class="type-card">
+            <div class="rt">Wiodący · display + tekst</div>
+            <div class="spec">Lucid Academy</div>
+            <div class="w">
+              <span style="font-weight: 300">Light · leady</span
+              ><span style="font-weight: 600">Semibold · nawigacja</span
+              ><span style="font-weight: 800">Bold · nagłówki, CTA</span>
+            </div>
+            <div class="glyphs">Aa Bb Cc — ąćęłńóśźż 0123456789</div>
+            <div class="note">
+              <b>Sora</b> — czysty, geometryczny grotesk. Nowoczesny, „techowy"
+              ton pasujący do AI/neonu; świetna czytelność na ciemnym tle.
+            </div>
+          </div>
+          <div class="type-card alt">
+            <div class="rt" style="color: var(--gold)">Opcjonalny akcent</div>
+            <div class="spec">po ludzku</div>
+            <div class="glyphs">Aa Bb Cc — ąćęłńóśźż 0123456789</div>
+            <div class="note">
+              <b>Fraunces</b> (italic) — tylko jako rzadki, ciepły akcent w
+              cytatach / wyróżnieniach. Wnosi „ludzki" ton tam, gdzie chcemy
+              zmiękczyć. Nie do nagłówków UI.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IKONY -->
+      <section class="reveal">
+        <span class="eyebrow">Ikonografia</span>
+        <h2>Linia, <em>zaokrąglona</em>, przyjazna</h2>
+        <div class="icons">
+          <div class="ico">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 0 1-.9-3.8A8.38 8.38 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"
+              />
+            </svg>
+            <div class="l">Rozmowa</div>
+          </div>
+          <div class="ico">
+            <svg viewBox="0 0 24 24">
+              <circle cx="9" cy="8" r="3" />
+              <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+              <circle cx="17" cy="7" r="2.3" />
+              <path d="M16 14.2c2.6.3 4.6 2.5 4.6 5.1" />
+            </svg>
+            <div class="l">Wspólnota</div>
+          </div>
+          <div class="ico">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.3 1 2.1h5c0-.8.4-1.6 1-2.1A6 6 0 0 0 12 3z"
+              />
+            </svg>
+            <div class="l">Edukacja</div>
+          </div>
+          <div class="ico">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9" />
+              <polygon points="15.5 8.5 10.5 10.5 8.5 15.5 13.5 13.5" />
+            </svg>
+            <div class="l">Kierunek</div>
+          </div>
+          <div class="ico">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1l1.7 1.7L12 21l7.1-7.1 1.7-1.7a5 5 0 0 0 0-7.1z"
+              />
+            </svg>
+            <div class="l">Zaufanie</div>
+          </div>
+          <div class="ico">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1" />
+            </svg>
+            <div class="l">AI / iskra</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- UI -->
+      <section class="reveal">
+        <span class="eyebrow">Komponenty UI</span>
+        <h2>Złoto = <em>akcja</em>, reszta oddycha</h2>
+        <div class="ui-grid">
+          <div class="demo-card">
+            <div class="pill-ico">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2v20M4.9 4.9l14.2 14.2M19.1 4.9 4.9 19.1M2 12h20"
+                />
+              </svg>
+            </div>
+            <h4>Edukacja AI po ludzku</h4>
+            <p>
+              Karta na półprzezroczystym szkle z neonową poświatą. Jedna karta =
+              jeden obszar oferty. Złota ikona prowadzi wzrok.
+            </p>
+            <div class="stats">
+              <div class="stat">
+                <div class="n">1200+</div>
+                <div class="l">przeszkolonych</div>
+              </div>
+              <div class="stat">
+                <div class="n">50+</div>
+                <div class="l">projektów</div>
+              </div>
+              <div class="stat">
+                <div class="n">80+</div>
+                <div class="l">partnerów</div>
+              </div>
+            </div>
+          </div>
+          <div class="demo-card">
+            <h4 style="margin-top: 0">Jeden główny ruch</h4>
+            <p>
+              Strona prowadzi do kontaktu. Złoty przycisk = akcja docelowa;
+              ghost = ruch poboczny. Nigdy dwa krzykliwe CTA naraz.
+            </p>
+            <div class="btn-row">
+              <button class="btn btn-primary">
+                <span class="btn-arrow">Współpracuj z nami</span>
+              </button>
+              <button class="btn btn-ghost">
+                <span class="btn-arrow">Poznaj ofertę</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KIERUNEK ZDJĘĆ -->
+      <section class="reveal">
+        <span class="eyebrow">Kierunek grafik</span>
+        <h2>Czego <em>chcemy</em>, czego unikamy</h2>
+        <div class="dirs">
+          <div class="cb do">
+            <div class="h">✓ Tak</div>
+            <ul>
+              <li>Ciemne, premium AI: neon, sieć/obwód, czysto i z klasą</li>
+              <li>Mały, mocny złoty punkt światła = nadzieja</li>
+              <li>Twarze ludzi, wspólnota, kultura — nie tylko technologia</li>
+              <li>
+                Edytorska, ludzka osobowość i odważna typografia (energia z
+                pracy Alicji)
+              </li>
+              <li>Nowoczesny, uporządkowany, „high-end" finish</li>
+            </ul>
+          </div>
+          <div class="cb no">
+            <div class="h">✕ Nie</div>
+            <ul>
+              <li>Brudny, deszczowy cyberpunk-slums, dystopia</li>
+              <li>Zimna noc bez ludzi i bez ciepłego światła</li>
+              <li>Jasny, ciepły świt jako dominanta („folk")</li>
+              <li>Złoto rozlane wszędzie — ma być akcentem</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- OCZEKIWANY DELIVERABLE -->
+      <section class="reveal">
+        <span class="eyebrow">Dla graficzek · czego oczekujemy</span>
+        <h2>Najcenniejszy efekt: <em>moodboard</em> jak ten</h2>
+        <p class="muted">
+          Najbardziej zależy nam na
+          <b style="color: var(--mist)">brand-toolkicie</b> w stylu i jakości
+          grafiki poniżej — jeden arkusz, który zbiera
+          <b class="go">czcionki, ikony i paletę barw</b> (plus komponenty UI i
+          kierunek zdjęć). Dostajemy wtedy gotowy, spójny system do zbudowania
+          strony.
+        </p>
+        <p>
+          Myślę że ten poniżej to jeszcze nie jest "to" ale ma dobrą strukturę i
+          tego typu grafika byłaby najcenniejsza. Może uda Wam sie to dopracować
+          jescze.
+        </p>
+        <div class="proof">
+          <figure>
+            <img
+              src="../grafiki/koncepcje/1.png"
+              alt="Wzorcowy brand toolkit — fonty, ikony, paleta barw"
+            />
+          </figure>
+          <div>
+            <p style="margin: 0 0 12px; font-weight: 600; color: var(--mist)">
+              Arkusz powinien zawierać:
+            </p>
+            <ul
+              style="
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 11px;
+              "
+            >
+              <li>
+                <b class="go">Typografia</b>
+                <span class="muted">— display + tekst, z polskimi znakami</span>
+              </li>
+              <li>
+                <b class="go">Ikony</b>
+                <span class="muted">— spójny zestaw w stylu marki</span>
+              </li>
+              <li>
+                <b class="go">Paleta barw</b>
+                <span class="muted">— kolory z kodami HEX i rolami</span>
+              </li>
+              <li>
+                <b class="go">Komponenty UI</b>
+                <span class="muted">— przyciski, karty, liczniki</span>
+              </li>
+              <li>
+                <b class="go">Kierunek grafik</b>
+                <span class="muted">— przykłady Tak/Nie</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="reveal">
+        <p>
+          <b>Lucid Academy · Moodboard v2 — „Ciepłe światło w mieście AI"</b>.
+          Materiał do akceptacji kierunku przez zarząd i graficzki. Zakotwiczony
+          w PRD i personie „Anny".
+        </p>
+        <p style="margin-top: 8px">
+          Następny krok po akceptacji: graficzki rozwijają key visual + system
+          stylu (termin: 4 dni).
+        </p>
+      </footer>
+    </div>
+    <script>
+      const io = new IntersectionObserver(
+        (es) => {
+          es.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("in");
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document.querySelectorAll(".reveal").forEach((el, i) => {
+        el.style.transitionDelay = i * 70 + "ms";
+        io.observe(el);
+      });
+
+      // Ocieplanie tła: im niżej scrollujemy, tym więcej ciepłego światła — demonstracja koncepcji
+      const warmth = document.querySelector(".warmth");
+      function onScroll() {
+        const h = document.documentElement;
+        const p = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+        warmth.style.opacity = Math.min(1, Math.max(0, p));
+      }
+      document.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    </script>
+  </body>
+</html>
